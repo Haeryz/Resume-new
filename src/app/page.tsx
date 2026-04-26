@@ -9,6 +9,7 @@ import ExperienceSection from "@/components/sections/experience";
 import ProjectsSection from "@/components/sections/projects";
 import ContactSection from "@/components/sections/contact";
 import HeroSection from "@/components/sections/hero";
+import ResearchSection from "@/components/sections/research";
 
 function MainPage() {
   return (
@@ -18,6 +19,7 @@ function MainPage() {
         <HeroSection />
         <SkillsSection />
         <ExperienceSection />
+        <ResearchSection />
         <ProjectsSection />
         <ContactSection />
       </main>
