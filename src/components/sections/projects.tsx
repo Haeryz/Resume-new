@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import {
   ResponsiveDialog,
@@ -19,9 +18,9 @@ import SectionWrapper from "../ui/section-wrapper";
 
 const ProjectsSection = () => {
   return (
-    <SectionWrapper id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
-      <SectionHeader id="projects" title="Projects" />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+    <SectionWrapper id="projects" className="max-w-7xl mx-auto min-h-screen py-24">
+      <SectionHeader id="projects" title="Projects" desc="Code-heavy systems and AI tooling." />
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -36,16 +35,18 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <ResponsiveDialog>
         <ResponsiveDialogTrigger className="bg-transparent flex justify-center">
           <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
+            className="relative w-[400px] max-w-[calc(100vw-2rem)] h-auto rounded-lg overflow-hidden border border-border/60 bg-background/70"
             style={{ aspectRatio: "3/2" }}
           >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
+            {project.src ? (
+              <img
+                className="absolute w-full h-full top-0 left-0 object-cover hover:scale-[1.05] transition-all"
+                src={project.src}
+                alt={project.title}
+              />
+            ) : (
+              <ProjectVisual project={project} />
+            )}
             <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-background via-background/85 to-transparent pointer-events-none">
               <div className="flex flex-col h-full items-start justify-end p-6">
                 <div className="text-lg text-left">{project.title}</div>
@@ -79,12 +80,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     Source
                   </Link>
                 )}
-                <Link href={project.live} target="_blank">
-                  <button className="group flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary/80 transition-colors">
-                    Visit
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
-                </Link>
+                {project.live && (
+                  <Link href={project.live} target="_blank">
+                    <button className="group flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary/80 transition-colors">
+                      Demo
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -133,6 +136,28 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         </ResponsiveDialogContent>
       </ResponsiveDialog>
+    </div>
+  );
+};
+
+const ProjectVisual = ({ project }: { project: Project }) => {
+  return (
+    <div className="absolute inset-0 p-5 text-left">
+      <div className="mb-4 flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-red-500" />
+        <span className="h-2 w-2 rounded-full bg-yellow-500" />
+        <span className="h-2 w-2 rounded-full bg-green-500" />
+        <span className="ml-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+          {project.visual.eyebrow}
+        </span>
+      </div>
+      <div className="space-y-3 font-mono text-xs text-muted-foreground md:text-sm">
+        {project.visual.lines.map((line) => (
+          <p key={line} className="truncate rounded-md bg-secondary/40 px-3 py-2">
+            <span className="text-primary">$</span> {line}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };
