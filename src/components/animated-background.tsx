@@ -8,7 +8,7 @@ import { Skill, SkillNames, SKILLS } from "@/data/constants";
 import { sleep } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePreloader } from "./preloader";
-import { useTheme } from "next-themes";
+import { useTheme } from "./theme-provider";
 import { useRouter } from "next/navigation";
 import { Section, getKeyboardState } from "./animated-background-config";
 import { useSounds } from "./realtime/hooks/use-sounds";
@@ -143,7 +143,8 @@ const AnimatedBackground = () => {
 
     // Section transitions
     createSectionTimeline("#skills", "skills", "hero");
-    createSectionTimeline("#projects", "projects", "skills", "top 70%");
+    createSectionTimeline("#research", "research", "skills", "top 70%");
+    createSectionTimeline("#projects", "projects", "research", "top 70%");
     createSectionTimeline("#contact", "contact", "projects", "top 30%");
   };
 
