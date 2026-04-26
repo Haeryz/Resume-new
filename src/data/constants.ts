@@ -22,9 +22,20 @@ export enum SkillNames {
   DOCKER = "docker",
   NGINX = "nginx",
   AWS = "aws",
+  AZURE = "azure",
   GCP = "gcp",
   VIM = "vim",
   VERCEL = "vercel",
+  PYTHON = "python",
+  SQL = "sql",
+  CPP = "cpp",
+  JAVA = "java",
+  CSHARP = "csharp",
+  FASTAPI = "fastapi",
+  PYTORCH = "pytorch",
+  TENSORFLOW = "tensorflow",
+  TRANSFORMERS = "transformers",
+  OPENCV = "opencv",
 }
 export type Skill = {
   id: number;
@@ -217,6 +228,15 @@ using use = useUsing("use")`,
     color: "#ff9900",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
   },
+  [SkillNames.AZURE]: {
+    id: 26,
+    name: "azure",
+    label: "Azure",
+    shortDescription:
+      "cloud deployment for shipping research and product prototypes.",
+    color: "#0078d4",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+  },
   [SkillNames.GCP]: {
     id: 25,
     name: "gcp",
@@ -242,6 +262,94 @@ using use = useUsing("use")`,
       "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  },
+  [SkillNames.PYTHON]: {
+    id: 27,
+    name: "python",
+    label: "Python",
+    shortDescription:
+      "the default instrument for experiments, pipelines, and model tooling.",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  [SkillNames.SQL]: {
+    id: 28,
+    name: "sql",
+    label: "SQL",
+    shortDescription:
+      "structured querying for datasets, evaluation slices, and analytics.",
+    color: "#336791",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  },
+  [SkillNames.CPP]: {
+    id: 29,
+    name: "cpp",
+    label: "C/C++",
+    shortDescription:
+      "low-level control for systems work, memory introspection, and performance.",
+    color: "#00599c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+  },
+  [SkillNames.JAVA]: {
+    id: 30,
+    name: "java",
+    label: "Java",
+    shortDescription: "typed application development and teaching foundations.",
+    color: "#f89820",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  },
+  [SkillNames.CSHARP]: {
+    id: 31,
+    name: "csharp",
+    label: "C#",
+    shortDescription: "tooling and application development across the .NET stack.",
+    color: "#68217a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+  },
+  [SkillNames.FASTAPI]: {
+    id: 32,
+    name: "fastapi",
+    label: "FastAPI",
+    shortDescription:
+      "typed Python APIs for model services, research demos, and automation.",
+    color: "#009688",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
+  },
+  [SkillNames.PYTORCH]: {
+    id: 33,
+    name: "pytorch",
+    label: "PyTorch",
+    shortDescription:
+      "model training, fine-tuning, and evaluation without hiding the tensors.",
+    color: "#ee4c2c",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+  },
+  [SkillNames.TENSORFLOW]: {
+    id: 34,
+    name: "tensorflow",
+    label: "TensorFlow",
+    shortDescription:
+      "production-aware model training and ML experimentation.",
+    color: "#ff6f00",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+  },
+  [SkillNames.TRANSFORMERS]: {
+    id: 35,
+    name: "transformers",
+    label: "Transformers",
+    shortDescription:
+      "LLM and embedding pipelines for generation, retrieval, and evaluation.",
+    color: "#ffd21e",
+    icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/huggingface.svg",
+  },
+  [SkillNames.OPENCV]: {
+    id: 36,
+    name: "opencv",
+    label: "OpenCV",
+    shortDescription:
+      "computer vision utilities for image processing and VLM-adjacent work.",
+    color: "#5c3ee8",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
   },
 };
 
