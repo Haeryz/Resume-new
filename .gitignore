@@ -43,4 +43,4 @@ main.log
 main.out
 main.pdf
 main.synctex.gz
-main.tex
+public/assets/resume/*.pdf
