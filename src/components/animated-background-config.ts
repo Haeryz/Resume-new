@@ -1,4 +1,11 @@
-export type Section = "hero" | "about" | "skills" | "experience" | "projects" | "contact";
+export type Section =
+  | "hero"
+  | "about"
+  | "skills"
+  | "experience"
+  | "research"
+  | "projects"
+  | "contact";
 
 export const STATES = {
   hero: {
@@ -69,6 +76,26 @@ export const STATES = {
       rotation: {
         x: 0,
         y: Math.PI / 6,
+        z: 0,
+      },
+    },
+  },
+  research: {
+    desktop: {
+      scale: { x: 0.24, y: 0.24, z: 0.24 },
+      position: { x: 120, y: -60, z: 0 },
+      rotation: {
+        x: Math.PI / 10,
+        y: -Math.PI / 5,
+        z: Math.PI / 18,
+      },
+    },
+    mobile: {
+      scale: { x: 0.28, y: 0.28, z: 0.28 },
+      position: { x: 0, y: 40, z: 0 },
+      rotation: {
+        x: Math.PI / 8,
+        y: -Math.PI / 5,
         z: 0,
       },
     },
