@@ -1,4 +1,5 @@
-import { EXPERIENCE, SkillNames, SKILLS } from "@/data/constants";
+import { SkillNames, SKILLS } from "@/data/constants";
+import { experience as EXPERIENCE } from "@/data/profile";
 import { SectionHeader } from "./section-header";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
@@ -12,10 +13,10 @@ const ExperienceSection = () => {
       className="flex flex-col items-center justify-center min-h-[120vh] py-20 z-10"
     >
       <div className="w-full max-w-4xl px-4 md:px-8 mx-auto">
-        <SectionHeader
+          <SectionHeader
           id="experience"
           title="Experience"
-          desc="My professional journey."
+          desc="Research-adjacent engineering, teaching, and production work."
           className="mb-12 md:mb-20 mt-0"
         />
 
