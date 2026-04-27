@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "dnf install -y texlive-scheme-basic texlive-pdftex texlive-latex texlive-collection-latexrecommended texlive-collection-latexextra texlive-collection-fontsrecommended texlive-collection-fontsextra && corepack enable && pnpm install --frozen-lockfile"
+}
