@@ -26,10 +26,21 @@ const PROJECT_SKILLS = {
   mongodb: skill("MongoDB", <SiMongodb />),
   socketio: skill("Socket.IO", <SiSocketdotio />),
   docker: skill("Docker", <SiDocker />),
-  cpp: skill("C/C++", <span className="text-xs font-bold">C++</span>),
-  windows: skill("Windows Driver Model", <span className="text-[10px] font-bold">WDM</span>),
-  directx: skill("DirectX 11", <span className="text-[10px] font-bold">DX11</span>),
-  pydantic: skill("Pydantic", <span className="text-[10px] font-bold">PYD</span>),
+  next: skill("Next.js", <span className="text-[10px] font-bold">NEXT</span>),
+  react: skill("React", <span className="text-[10px] font-bold">RCT</span>),
+  vite: skill("Vite", <span className="text-[10px] font-bold">VITE</span>),
+  tailwind: skill("Tailwind CSS", <span className="text-[10px] font-bold">TW</span>),
+  shadcn: skill("shadcn/ui", <span className="text-[10px] font-bold">UI</span>),
+  postgres: skill("PostgreSQL", <span className="text-[10px] font-bold">PG</span>),
+  prisma: skill("Prisma", <span className="text-[10px] font-bold">PRSM</span>),
+  streamlit: skill("Streamlit", <span className="text-[10px] font-bold">ST</span>),
+  pytorch: skill("PyTorch", <span className="text-[10px] font-bold">PT</span>),
+  transformers: skill("Transformers", <span className="text-[10px] font-bold">HF</span>),
+  chrome: skill("Chrome Extension", <span className="text-[10px] font-bold">EXT</span>),
+  azure: skill("Azure", <span className="text-[10px] font-bold">AZ</span>),
+  express: skill("Express", <span className="text-[10px] font-bold">EX</span>),
+  node: skill("Node.js", <span className="text-[10px] font-bold">NODE</span>),
+  firebase: skill("Firebase Auth", <span className="text-[10px] font-bold">FB</span>),
 };
 
 const ProjectLinks = ({
@@ -85,99 +96,347 @@ export type Project = {
 
 const projects: Project[] = [
   {
-    id: "kernel-memory-introspection",
-    category: "Systems research",
-    title: "Windows Kernel Memory Introspection Engine",
+    id: "nextcrm",
+    category: "CRM platform",
+    title: "NextCRM Deployment",
     visual: {
-      eyebrow: "x64 / WDM / telemetry",
+      eyebrow: "next.js / crm / ai",
       lines: [
-        "cr3 -> pml4 -> pdpt -> pd -> pt",
-        "ioctl(shared_memory_channel)",
-        "ob_register_callbacks(handle_filter)",
+        "crm.dashboard(accounts, leads, projects)",
+        "documents + email + reports",
+        "deployed_on(vercel)",
       ],
     },
-    github: "https://github.com/Haeryz/Apex-external-driver",
+    src: "/assets/projects-screenshots/portfolio/projects.png",
+    github: "https://github.com/Haeryz/nextcrm-app",
+    live: "https://mektek-bice.vercel.app/en",
     skills: {
-      frontend: [PROJECT_SKILLS.directx],
-      backend: [PROJECT_SKILLS.cpp, PROJECT_SKILLS.windows],
-    },
-    content: (
-      <div>
-        <TypographyP className="font-mono text-xl text-center md:text-2xl">
-          Page-level introspection with a separate diagnostics surface.
-        </TypographyP>
-        <TypographyP className="font-mono">
-          This project explores low-level Windows telemetry through a WDM kernel
-          component that manually translates x64 virtual addresses to physical
-          memory using CR3, PML4, PDPT, PD, and PT traversal.
-        </TypographyP>
-        <ProjectLinks source="https://github.com/Haeryz/Apex-external-driver" />
-        <TypographyH3 className="my-4 mt-8">Kernel Boundary</TypographyH3>
-        <p className="mb-2 font-mono">
-          The driver exposes a shared-memory and IOCTL interface for stable
-          page-level reads without relying on normal user-mode API paths.
-        </p>
-        <TypographyH3 className="my-4 mt-8">Handle Filtering</TypographyH3>
-        <p className="mb-2 font-mono">
-          ObRegisterCallbacks-based filtering restricts sensitive handle access,
-          making the telemetry path more controlled and observable.
-        </p>
-        <TypographyH3 className="my-4 mt-8">Diagnostics Surface</TypographyH3>
-        <p className="mb-2 font-mono">
-          A transparent DirectX 11 and ImGui overlay runs separately from the
-          memory loop, keeping rendering and inspection concerns isolated.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: "gemini-api-toolkit",
-    category: "AI tooling",
-    title: "Unofficial Gemini API Service Toolkit",
-    visual: {
-      eyebrow: "cli / http / multimodal",
-      lines: [
-        "gemini(prompt, image?) -> json",
-        "browser_cookie_auto_discovery()",
-        "pydantic.parse(response_strategy)",
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.shadcn,
       ],
-    },
-    github: "https://github.com/Haeryz/Unofficial-Gemini-API",
-    skills: {
-      frontend: [PROJECT_SKILLS.typescript],
       backend: [
-        PROJECT_SKILLS.python,
-        PROJECT_SKILLS.fastapi,
-        PROJECT_SKILLS.pydantic,
-        PROJECT_SKILLS.socketio,
+        PROJECT_SKILLS.postgres,
+        PROJECT_SKILLS.prisma,
         PROJECT_SKILLS.docker,
       ],
     },
     content: (
       <div>
         <TypographyP className="font-mono text-xl text-center md:text-2xl">
-          Local automation layers for multimodal Gemini workflows.
+          A deployed CRM cockpit with projects, documents, email, and AI-ready workflows.
         </TypographyP>
         <TypographyP className="font-mono">
-          The toolkit wraps prompt and image handling behind CLI and HTTP service
-          entrypoints, producing structured JSON responses that are easier to
-          reuse in research prototypes and local automation.
+          This deployment customizes a modern open-source CRM stack around a
+          usable Vercel-hosted demo, with dashboard navigation for sales,
+          campaigns, project tracking, reports, document storage, and email
+          workflows.
         </TypographyP>
-        <ProjectLinks source="https://github.com/Haeryz/Unofficial-Gemini-API" />
-        <TypographyH3 className="my-4 mt-8">Service Interfaces</TypographyH3>
+        <ProjectLinks
+          source="https://github.com/Haeryz/nextcrm-app"
+          live="https://mektek-bice.vercel.app/en"
+        />
+        <TypographyH3 className="my-4 mt-8">Product Surface</TypographyH3>
         <p className="mb-2 font-mono">
-          The gemini, start-gemini, and gemini-api entrypoints cover direct CLI
-          use and long-running HTTP service usage.
+          The app exposes dense CRM modules rather than a marketing shell:
+          accounts, leads, projects, campaigns, reports, documents, and
+          administration are all reachable from the first screen.
         </p>
-        <TypographyH3 className="my-4 mt-8">Auth Workflow</TypographyH3>
+        <TypographyH3 className="my-4 mt-8">Stack</TypographyH3>
         <p className="mb-2 font-mono">
-          Cookie-loading logic supports browser auto-discovery so local sessions
-          can be reused without hardcoding credentials into application code.
+          Next.js, React, TypeScript, shadcn/ui, PostgreSQL, Prisma, Docker, and
+          Vercel provide a production-shaped full-stack baseline.
         </p>
-        <TypographyH3 className="my-4 mt-8">Response Parsing</TypographyH3>
+        <TypographyH3 className="my-4 mt-8">Resume Value</TypographyH3>
         <p className="mb-2 font-mono">
-          Multiple parsing strategies normalize model output into Pydantic
-          models, reducing brittle downstream prompt handling.
+          It demonstrates comfort working inside a large TypeScript application
+          with real product modules, deployment concerns, and admin-facing UI.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "deepfake-detector",
+    category: "Computer vision",
+    title: "Deepfake Detection System",
+    visual: {
+      eyebrow: "streamlit / pytorch / cv",
+      lines: [
+        "upload(image) -> model_ensemble",
+        "custom_cnn + efficientnet + mobilenet",
+        "streamlit.run(inference_ui)",
+      ],
+    },
+    src: "/assets/projects-screenshots/jra/1.png",
+    github: "https://github.com/Haeryz/Deepfake",
+    live: "https://deepfake-nbtahi5od5xbiqccspmhtj.streamlit.app/",
+    skills: {
+      frontend: [PROJECT_SKILLS.streamlit],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.pytorch,
+        PROJECT_SKILLS.transformers,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    content: (
+      <div>
+        <TypographyP className="font-mono text-xl text-center md:text-2xl">
+          A deployed image-analysis app for comparing real and AI-generated faces.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          The Streamlit interface lets users upload an image, select one or more
+          models, and run deepfake inference through a shared prediction path.
+          The codebase includes a custom CNN and pretrained image classifiers.
+        </TypographyP>
+        <ProjectLinks
+          source="https://github.com/Haeryz/Deepfake"
+          live="https://deepfake-nbtahi5od5xbiqccspmhtj.streamlit.app/"
+        />
+        <TypographyH3 className="my-4 mt-8">Model Ensemble</TypographyH3>
+        <p className="mb-2 font-mono">
+          The inference layer supports CustomCNN, EfficientNet, and MobileNet so
+          predictions can be compared instead of relying on a single model.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Application Layer</TypographyH3>
+        <p className="mb-2 font-mono">
+          Streamlit, Pillow, PyTorch, torchvision, and Transformers are wired
+          into an upload-first workflow suitable for quick model demos.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Deployment</TypographyH3>
+        <p className="mb-2 font-mono">
+          The repository includes a Dockerfile and a live Streamlit deployment,
+          making the ML work inspectable outside a notebook.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "bafain",
+    category: "IoT commerce",
+    title: "Bafain Solar Dryer",
+    visual: {
+      eyebrow: "vite / fastapi / firebase",
+      lines: [
+        "solar_dryer.catalog()",
+        "firebase.auth(token) -> fastapi",
+        "orders + invoices + shipment",
+      ],
+    },
+    src: "/assets/projects-screenshots/couponluxury/store.png",
+    github: "https://github.com/Haeryz/Bafain",
+    live: "https://bafain.vercel.app",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.vite,
+        PROJECT_SKILLS.shadcn,
+      ],
+      backend: [
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.fastapi,
+        PROJECT_SKILLS.firebase,
+        PROJECT_SKILLS.docker,
+      ],
+    },
+    content: (
+      <div>
+        <TypographyP className="font-mono text-xl text-center md:text-2xl">
+          A deployed product system for solar dryer sales and operations.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          Bafain combines a React product frontend with a FastAPI backend for
+          authentication, cart, checkout, orders, invoices, shipment, address,
+          product, and admin workflows.
+        </TypographyP>
+        <ProjectLinks
+          source="https://github.com/Haeryz/Bafain"
+          live="https://bafain.vercel.app"
+        />
+        <TypographyH3 className="my-4 mt-8">Backend API</TypographyH3>
+        <p className="mb-2 font-mono">
+          The documented API uses JSON endpoints, Firebase ID tokens, refresh
+          flows, protected routes, and consistent error shapes for mobile or web
+          integration.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Operations Coverage</TypographyH3>
+        <p className="mb-2 font-mono">
+          Controllers and models cover the core commerce lifecycle from product
+          browsing to checkout, invoice generation, shipping, and admin review.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Deployment</TypographyH3>
+        <p className="mb-2 font-mono">
+          The frontend is live on Vercel, while the backend includes Docker and
+          GitHub Actions workflow scaffolding for deployment automation.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "resumate",
+    category: "Job search",
+    title: "ResuMate Job Search",
+    visual: {
+      eyebrow: "next.js / search / ux",
+      lines: [
+        "filter(remote, salary, role)",
+        "rank(featured_roles)",
+        "job_card -> quick_take",
+      ],
+    },
+    src: "/assets/projects-screenshots/codingducks/problems.png",
+    github: "https://github.com/Haeryz/BoorgerKirk",
+    live: "https://boorger-kirk.vercel.app",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.tailwind,
+      ],
+      backend: [],
+    },
+    content: (
+      <div>
+        <TypographyP className="font-mono text-xl text-center md:text-2xl">
+          A deployed job-search interface built for fast scanning and filtering.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          ResuMate presents a search-first jobs board with role cards, salary
+          ranges, company labels, remote filters, experience filters, and quick
+          summaries for each opportunity.
+        </TypographyP>
+        <ProjectLinks
+          source="https://github.com/Haeryz/BoorgerKirk"
+          live="https://boorger-kirk.vercel.app"
+        />
+        <TypographyH3 className="my-4 mt-8">Search Experience</TypographyH3>
+        <p className="mb-2 font-mono">
+          The first viewport exposes AI search, work type, salary, experience,
+          department, and job type controls without forcing users through a
+          landing page.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Information Design</TypographyH3>
+        <p className="mb-2 font-mono">
+          Job cards combine compensation, location, seniority, tags, demand
+          signals, application counts, and concise role summaries.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Deployment</TypographyH3>
+        <p className="mb-2 font-mono">
+          The Vercel deployment makes the UI immediately reviewable and gives
+          the portfolio another live product surface.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "youtube-live-chat-translator",
+    category: "Browser extension",
+    title: "YouTube Live Chat Translator",
+    visual: {
+      eyebrow: "chrome / azure / translation",
+      lines: [
+        "content_script.observe(chat)",
+        "azure.translate(message)",
+        "rate_limit(2m_chars_month)",
+      ],
+    },
+    src: "/assets/projects-screenshots/ghostchat/1.png",
+    github: "https://github.com/Haeryz/yt-translator",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.chrome,
+        PROJECT_SKILLS.react,
+      ],
+      backend: [PROJECT_SKILLS.azure],
+    },
+    content: (
+      <div>
+        <TypographyP className="font-mono text-xl text-center md:text-2xl">
+          A Chrome extension that translates YouTube live chat in place.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          The extension injects a content script into YouTube live streams,
+          detects new chat messages, sends them through Azure Translator, and
+          renders translations below the original text.
+        </TypographyP>
+        <ProjectLinks source="https://github.com/Haeryz/yt-translator" />
+        <TypographyH3 className="my-4 mt-8">Chat Automation</TypographyH3>
+        <p className="mb-2 font-mono">
+          The content script watches live chat updates and avoids translating
+          messages that already match the target language.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Usage Control</TypographyH3>
+        <p className="mb-2 font-mono">
+          Built-in tracking and rate limiting keep requests within Azure
+          Translator free-tier constraints.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Extension Surface</TypographyH3>
+        <p className="mb-2 font-mono">
+          Popup and options pages let users configure API credentials, region,
+          target language, and translation state.
+        </p>
+      </div>
+    ),
+  },
+  {
+    id: "depo79",
+    category: "E-commerce",
+    title: "Depo79 Construction Retail",
+    visual: {
+      eyebrow: "mern / chat / ci",
+      lines: [
+        "jwt.auth(user, admin)",
+        "cart + checkout + analytics",
+        "socket_io.chat(order_support)",
+      ],
+    },
+    src: "/assets/projects-screenshots/the-booking-desk/landing.png",
+    github: "https://github.com/Haeryz/E-Commerce-depo-79",
+    skills: {
+      frontend: [
+        PROJECT_SKILLS.react,
+        PROJECT_SKILLS.typescript,
+        PROJECT_SKILLS.tailwind,
+      ],
+      backend: [
+        PROJECT_SKILLS.node,
+        PROJECT_SKILLS.express,
+        PROJECT_SKILLS.mongodb,
+        PROJECT_SKILLS.socketio,
+        PROJECT_SKILLS.azure,
+      ],
+    },
+    content: (
+      <div>
+        <TypographyP className="font-mono text-xl text-center md:text-2xl">
+          A construction-materials e-commerce platform built during internship work.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          Depo79 implements MERN-stack commerce flows for product browsing,
+          cart management, authentication, customer chat, and operational
+          dashboards for construction retail.
+        </TypographyP>
+        <ProjectLinks source="https://github.com/Haeryz/E-Commerce-depo-79" />
+        <TypographyH3 className="my-4 mt-8">Commerce Modules</TypographyH3>
+        <p className="mb-2 font-mono">
+          Backend controllers cover auth, addresses, carts, chat, and related
+          retail workflows, while the frontend supports customer-facing product
+          and order interactions.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Realtime Support</TypographyH3>
+        <p className="mb-2 font-mono">
+          Socket.IO provides customer-support chat so buyers can communicate
+          during browsing, checkout, and order follow-up.
+        </p>
+        <TypographyH3 className="my-4 mt-8">Delivery Pipeline</TypographyH3>
+        <p className="mb-2 font-mono">
+          The repository includes GitHub Actions and Azure workflow files,
+          matching the deployment work described in the experience section.
         </p>
       </div>
     ),
